@@ -11,34 +11,39 @@
     </head>
     <body class="bg-gray-100 font-sans">
         <!--nav head-->
-                <div class="flex justify-between items-center bg-white shadow-sm p-4 rounded-b-lg h-18">
-                    <h2 class="text-2xl font-semibold pl-64">Dashboard</h2>
-                    <div class="flex bg-gray-100 rounded-sm p-2 w-full ml-8 hover:border-2 border-blue-900">
-                        <i class="fa-solid fa-magnifying-glass mt-1 text-blue-700"></i>
-                        <input type="text" placeholder="Search here..." class="ml-2 w-full focus:outline-none">
-                    </div>
-                    <label for="lang" class="pl-8 mr-4">
-                        <select name="lang" id="">
-                            <option value="US">English (US)</option>
-                            <option value="UK">English (UK)</option>
-                        </select>
-                    </label>
-                    <i class="fa-regular fa-bell text-amber-400 bg-amber-100 p-2 rounded mr-3"></i>
-                    <label for="designation">
-                        <i class="fa-solid fa-circle-user "></i>
-                        <select name="designation" id="sign in">
-                            <a href="#"><option value="sign">Sign in</option></a>
-                            <option value="account">Profile</option>
-                            <option value="help">Help</option>
-                        </select>
-                    </label>
-                </div> 
+        <div class="flex justify-between items-center bg-white shadow-sm p-4 rounded-b-lg h-18">
+            <h2 class="text-2xl font-semibold pl-60">Dashboard</h2>
+                <div class="flex bg-gray-100 rounded-sm p-2 w-4xl ml-1.5 hover:border-2 border-blue-900">
+                    <i class="fa-solid fa-magnifying-glass mt-1 text-blue-700"></i>
+                    <input type="text" placeholder="Search here..." class="ml-2 w-full focus:outline-none">
+                </div>
+                <label for="lang" class="pl-1 mr-0.5">
+                    <select name="lang" id="">
+                        <option value="US">English(US)</option>
+                        <option value="UK">English(UK)</option>
+                    </select>
+                </label>
+                <i class="fa-regular fa-bell text-amber-400 bg-amber-100 p-2 pl-1 mr-0.5 ml-2 rounded"></i>
+                    <div id="user-info" class="user-info flex">
+                        <ul>
+                            <li class="relative group flex">
+                                <button class="rounded mt-1.5" id="user-fullname"></button>
+                                <ul class="absolute left-0 mt-2 mr-4 w-40 bg-white shadow-lg rounded hidden group-hover:block">   
+                                    <li class="block hover:bg-gray-100"><p><strong>Username:</strong><br><span id="user-username"></span></p></li>
+                                    <li class="block hover:bg-gray-100"><p><strong>Gender:</strong><br><span id="user-gender"></span></p></li>
+                                    <li class="block hover:bg-gray-100"><p><strong>Age:</strong><br><span id="user-age"></span></p></li>   
+                                </ul>
+                            </li>
+                        </ul>
+                        <img id="user-image" src="" alt="Profile Picture" class=" w-10 h-10 ml-0 mt-1"/>      
+                    </div> 
+            </div> 
         <!--screen-->      
         <div class="flex min-h-screen">
             <!--side bar-->
             <aside class="bg-white w-64 shadow-lg pl-4 mt-0">
                 <h1 class="text-2xl font-bold mb-6 mt-0 flex">  
-                        <i class="fa-brands fa-confluence fa-beat bg-blue-700 text-white p-2 mr-4 rounded-xl"></i>
+                <i class="fa-brands fa-confluence fa-beat bg-blue-700 text-white p-2 mr-4 rounded-xl"></i>
                 Dabang</h1>
                 <nav>
                     <a href="#" class="block font-semibold bg-blue-700 text-white w-40 p-2 rounded-md items-center"><i class="fa-solid fa-chart-pie pr-3.5"></i>Dashboard</a>
@@ -48,7 +53,7 @@
                     <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-chart-line pr-3.5"></i>Sales Report</a>                    
                     <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-regular fa-comment-dots pr-3.5"></i>Messages</a>                    
                     <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-gear pr-3.5"></i>Settings</a>                    
-                    <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-arrow-right-from-bracket pr-3.5"></i>Sign Out</a>                    
+                    <a href="log.html" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-arrow-right-from-bracket pr-3.5"></i>Sign Out</a>                    
                 </nav>
                 <!--Pro-->
                 <div class="bg-blue-500 text-white drop-shadow-md p-2 mt-12 rounded-lg text-center ml-2 w-45 h-50 mb-4">
@@ -69,30 +74,30 @@
                     <div class="bg-white p-4 rounded-lg shadow mt-4.5 col-span-3">
                         <div class="flex justify-between">
                             <h2 class="font-bold">Today's Sales</h2>
-                            <div class="border-2 p-0.5 mb-3 border-gray-200 rounded-md text-blue-900 text-sm">
+                            <div class="border-2 p-1.5 mb-3 border-gray-200 rounded-md text-blue-900 text-sm">
                                 <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-270"></i>
-                                <button>Export</button>
+                                <button class=" text-xs">Export</button>
                             </div>
                         </div>
                         <p class="font-extralight text-gray-500 mb-4">Sales Summary</p>
                         <div class="grid grid-cols-4 gap-2 mt-3.5">
                             <div class="bg-pink-200 rounded-lg p-2">
                                 <i class="fa-solid fa-chart-column bg-red-600 rounded-full p-2 text-white"></i>
-                                <p class="font-bold">$1k</p>
+                                <p class="font-bold" id="todaySale"></p>
                                 <p class="font-normal">Total Sales</p>
-                                <p class="font-extralight text-blue-600 text-xs">+8% from yesterday</p>
+                                <p class="font-extralight text-blue-600 text-xs" id="percentChange"></p>
                             </div>
                             <div class="bg-amber-100 rounded-lg p-2">
                                 <i class="fa-solid fa-file bg-orange-600 rounded-full p-2 text-white"></i>
-                                <p class="font-bold">300</p>
+                                <p class="font-bold" id="todayOrders"></p>
                                 <p class="font-normal">Total Order</p>
-                                <p class="font-extralight text-blue-600 text-xs">+5% from yesterday</p>
+                                <p class="font-extralight text-blue-600 text-xs" id="orderpercentChange"></p>
                             </div>
                             <div class="bg-green-200 rounded-lg p-2">
                                 <i class="fa-solid fa-tag fa-rotate-90 bg-green-600 rounded-full p-2 text-white"></i>
-                                <p class="font-bold">5</p>
+                                <p class="font-bold" id="productsSoldToday"></p>
                                 <p class="font-normal">Product Sold</p>
-                                <p class="font-extralight text-blue-600 text-xs">+1.2% from yesterday</p> 
+                                <p class="font-extralight text-blue-600 text-xs" id="soldpercentChange"></p> 
                             </div>
                             <div class="bg-purple-300 rounded-lg p-2">
                                 <i class="fa-solid fa-user-plus bg-purple-600 rounded-full p-2 text-white"></i>
@@ -140,7 +145,7 @@
                     <div class="bg-white p-4 rounded-lg shadow mt-4.5 col-span-2">
                         <h2 class="font-bold">Top Products</h2>
                         <div>
-                            <canvas id="myChart4" height="100rem"></canvas>
+                            <canvas id="myChart4" height="220rem"></canvas>
                         </div>
                     </div>
                     <!--Second column-->
@@ -160,394 +165,6 @@
                 </div>
             </main>
         </div>
-        <script>
-
-            // row 1 column 2
-            const x = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            new Chart("myChart", {
-            type: "line",
-            data: {
-                labels: x,
-                datasets: [{
-                data: [310,290,250,190,194,220,250,280,200,180,160,110],
-                borderColor: "purple",
-                label: "Loyal Customer",
-                fill: false,
-                pointStyle: 'circle'
-                },{
-                data: [280,250,190,160,194,250,300,310,330,220,170,130],
-                borderColor: "red",
-                label: "New Customer",
-                fill: false
-                },{
-                data: [330,410,420,380,315,276,280,290,330,180,210,220],
-                borderColor: "green",
-                label: "Unique Customer",
-                fill: false
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'bottom',
-                        labels: {
-                            usePointStyle: true,
-                            pointStyle: 'rectRounded', 
-                            padding: 20,
-                            font: {
-                                size: 10,
-                                family: 'Arial',
-                                weight: 'bold'
-                            },
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {display: false}
-                    },
-                    y: {
-                        ticks: {
-                            stepSize: 100 
-                        },
-                        beginAtZero: true 
-                    }
-                }
-                },
-            });
-
-            //row 2 column 1
-            const Values = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-            new Chart("myChart1", {
-            type: "bar",
-            data: {
-                labels: Values,
-                datasets: [{
-                data: [14,17,6,16,12,17,22],
-                backgroundColor: "blue",
-                label: "Online Sales"
-                },{
-                data: [13,12,23,7,11,14,13],
-                backgroundColor: "green",
-                label: "Offline Sales"
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'bottom',
-                        labels: {
-                            usePointStyle: true,
-                            pointStyle: 'circle', 
-                            padding: 20,
-                            font: {
-                                size: 10,
-                                family: 'Arial',
-                                weight: 'bold'
-                            },
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {display: false}
-                    },
-                    y: {
-                        ticks: {
-                            stepSize: 5 // Y-axis ticks increase by 5
-                        },
-                        beginAtZero: true // Ensure it starts from 0
-                    }
-                }
-            },
-            });
-
-            //row 2 column 2
-            new Chart("myChart2", {
-            type: 'line',
-            data: {
-                labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
-                datasets: [{
-                label: 'Last Month',
-                data: [500, 1000, 700, 1200, 1100, 1300, 1400],
-                borderColor: 'blue',
-                backgroundColor: 'rgba(0, 123, 255, 0.2)',
-                tension: 0.4, // smooth curves
-                fill: true,
-                pointBackgroundColor: 'blue',
-                pointBorderColor: 'white',
-                pointRadius: 4
-                },
-                {
-                data: [1000, 1300, 1200, 1400, 1600, 1500, 2000],
-                borderColor: 'green',
-                backgroundColor: 'rgba(40, 167, 69, 0.2)',
-                label: "This Month",
-                tension: 0.4,
-                fill: true,
-                pointBackgroundColor: 'green',
-                pointBorderColor: 'white',
-                pointRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'bottom',
-                        labels: {
-                            usePointStyle: true,
-                            pointStyle: 'circle', 
-                            padding: 20,
-                            font: {
-                                size: 10,
-                                family: 'Arial',
-                                weight: 'bold'
-                            },
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        display: false
-                    },
-                    y: {
-                        beginAtZero: true,
-                        display: false
-                    }
-                }
-            }
-            });
-
-            //row 2 column 3
-            const xValues1 = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July"];
-            new Chart("myChart3", {
-                type: "bar",
-                data: {
-                    labels: xValues1,
-                    datasets: [
-                        {
-                            label: "Reality Sales",
-                            data: [1600, 1700, 1700, 1900, 2000, 2700, 4000],
-                            backgroundColor: "#00C896", // green
-                            borderRadius: 5,
-                        },
-                        {
-                            label: "Target Sales",
-                            data: [300, 700, 2000, 5000, 6000, 4000, 2000],
-                            backgroundColor: "#FFD233", // yellow
-                            borderRadius: 5,
-                        }
-                    ]
-                },
-                options: {
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'bottom',
-                            labels: {
-                                usePointStyle: true,
-                                pointStyle: 'rectRounded', // Rounded box
-                                padding: 20,
-                                font: {
-                                    size: 12,
-                                    family: 'Arial',
-                                    weight: 'bold'
-                                },
-                                color: '#444'
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: {display: true},
-                            grid: {display: false}
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {display: false},
-                            grid: {display: false}
-                        }
-                    }
-                }
-            });
-            //row 3 column 1
-            new Chart("myChart4", {
-            type: 'bar',
-            data: {
-                labels: [
-                'Home Decor Range',
-                'Disney Princess Pink Bag 18"',
-                'Bathroom Essentials',
-                'Apple Smartwatches'
-                ],
-                datasets: [{
-                label: 'Sales %',
-                data: [45, 29, 18, 25],
-                backgroundColor: [
-                    'Blue',
-                    'Green',  
-                    'Purple',  
-                    'Orange'  
-                ],
-                borderRadius: 2,
-                barPercentage: 0.6
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                scales: {
-                x: {
-                    grid: {display: false},
-                    beginAtZero: true,
-                    max: 50,
-                    ticks: {
-                    callback: value => value + '%'
-                    }
-                }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                        label: context => context.raw + '%'
-                        }
-                    }
-                }
-            }
-            });
-            //row3 column 2
-            fetch('https://unpkg.com/world-atlas/countries-50m.json')
-      .then(res => res.json())
-      .then(topology => {
-        const countries = ChartGeo.topojson.feature(topology, topology.objects.countries).features;
-
-        const countrySales = {
-          "United States of America": 100,
-          "Brazil": 90,
-          "China": 85,
-          "Indonesia": 80,
-          "Saudi Arabia": 70,
-          "Nigeria": 60
-        };
-
-        const colorMap = {
-          100: "#FFA500",  // Orange
-          90: "#FF4D6D",   // Red
-          85: "#7A5FFF",   // Purple
-          80: "#00C49F",   // Teal
-          70: "#00B894",   // Green
-          60: "#0088FE"    // Blue
-        };
-
-        const data = countries.map(c => {
-          const value = countrySales[c.properties.name] || 0;
-          return {
-            feature: c,
-            value
-          };
-        });
-
-        new Chart(document.getElementById("worldMapChart").getContext("2d"), {
-          type: 'choropleth',
-          data: {
-            labels: countries.map(d => d.properties.name),
-            datasets: [{
-              label: 'Sales Mapping',
-              data,
-              backgroundColor: ctx => {
-                const value = ctx.dataset.data[ctx.dataIndex]?.value;
-                return colorMap[value] || "#e5e7eb"; // Gray for all others
-              },
-              //borderColor: "#ffffff",
-              borderWidth: 0.5
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: { display: false },
-              tooltip: { enabled: false } // Disable tooltip for clean look
-            },
-            scales: {
-              xy: {
-                projection: 'equalEarth'
-              }
-            }
-          }
-        });
-      });
-
-            //row 3 column 3
-            const x6 = [100,600,500,750,940,300];
-
-            new Chart("myChart6", {
-            type: "bar",
-            data: {
-                labels: x6,
-                datasets: [
-                {
-                    label: "Volume",
-                    data: [1600, 1700, 1700, 1900, 2000, 2700, 4000],
-                    backgroundColor: "lightgreen",
-                    borderRadius: 5,
-                    stack: 'sales', // enable stacking
-                },
-                {
-                    label: "Service",
-                    data: [300, 700, 2000, 5000, 6000, 4000, 2000],
-                    backgroundColor: "lightblue", // yellow
-                    borderRadius: 5,
-                    stack: 'sales', // same stack group
-                }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                    usePointStyle: true,
-                    padding: 20,
-                    font: {
-                        size: 10,
-                        family: 'Arial',
-                        weight: 'bold'
-                    },
-                    }
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                    callbacks: {
-                    label: function(context) {
-                        return `${context.dataset.label}: ${context.formattedValue}`;
-                    }
-                    }
-                }
-                },
-                scales: {
-                        x: {
-                            ticks: {display: true},
-                            grid: {display: false}
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {display: false},
-                            grid: {display: false}
-                        }
-                    }
-                }
-            });
-
-        </script>
+        <script src="all.js"></script>
     </body>
 </html>
