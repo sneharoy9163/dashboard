@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="./work_output.css" rel="stylesheet">
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@3"></script>
+    </head>
+    <body class="bg-gray-100 font-sans">
+        <!--nav head-->
+        <div class="flex justify-between items-center bg-white shadow-sm p-4 rounded-b-lg h-18">
+            <h2 class="text-2xl font-semibold pl-60">Dashboard</h2>
+                <div class="flex bg-gray-100 rounded-sm p-2 w-4xl ml-1.5 hover:border-2 border-blue-900">
+                    <i class="fa-solid fa-magnifying-glass mt-1 text-blue-700"></i>
+                    <input type="text" placeholder="Search here..." class="ml-2 w-full focus:outline-none">
+                </div>
+                <label for="lang" class="pl-1 mr-0.5">
+                    <select name="lang" id="">
+                        <option value="US">English(US)</option>
+                        <option value="UK">English(UK)</option>
+                    </select>
+                </label>
+                <i class="fa-regular fa-bell text-amber-400 bg-amber-100 p-2 pl-1 mr-0.5 ml-2 rounded"></i>
+                    <div id="user-info" class="user-info flex">
+                        <ul>
+                            <li class="relative group flex">
+                                <button class="rounded mt-1.5" id="user-fullname"></button>
+                                <ul class="absolute left-0 mt-2 mr-4 w-40 bg-white shadow-lg rounded hidden group-hover:block">   
+                                    <li class="block hover:bg-gray-100"><p><strong>Username:</strong><br><span id="user-username"></span></p></li>
+                                    <li class="block hover:bg-gray-100"><p><strong>Gender:</strong><br><span id="user-gender"></span></p></li>
+                                    <li class="block hover:bg-gray-100"><p><strong>Age:</strong><br><span id="user-age"></span></p></li>   
+                                </ul>
+                            </li>
+                        </ul>
+                        <img id="user-image" src="" alt="Profile Picture" class=" w-10 h-10 ml-0 mt-1"/>      
+                    </div> 
+            </div> 
+        <!--screen-->      
+        <div class="flex min-h-screen">
+            <!--side bar-->
+            <aside class="bg-white w-64 shadow-lg pl-4 mt-0">
+                <h1 class="text-2xl font-bold mb-6 mt-0 flex">  
+                <i class="fa-brands fa-confluence fa-beat bg-blue-700 text-white p-2 mr-4 rounded-xl"></i>
+                Dabang</h1>
+                <nav>
+                    <a href="#" class="block font-semibold bg-blue-700 text-white w-40 p-2 rounded-md items-center"><i class="fa-solid fa-chart-pie pr-3.5"></i>Dashboard</a>
+                    <a href="#" class="block text-gray-500 pt-7 p-3"><i class="fa-solid fa-chart-simple pr-3.5"></i>Leaderboard</a>
+                    <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-cart-shopping pr-3.5"></i>Order</a>  
+                    <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-bag-shopping pr-3.5"></i>Products</a>                    
+                    <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-chart-line pr-3.5"></i>Sales Report</a>                    
+                    <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-regular fa-comment-dots pr-3.5"></i>Messages</a>                    
+                    <a href="#" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-gear pr-3.5"></i>Settings</a>                    
+                    <a href="log.html" class="block text-gray-500 pt-6 p-3"><i class="fa-solid fa-arrow-right-from-bracket pr-3.5"></i>Sign Out</a>                    
+                </nav>
+                <!--Pro-->
+                <div class="bg-blue-500 text-white drop-shadow-md p-2 mt-12 rounded-lg text-center ml-2 w-45 h-50 mb-4">
+                    <i class="fa-brands fa-confluence bg-white text-blue-600 p-2 rounded-lg mt-2"></i>
+                    <h2 class="pt-1 font-extrabold">Dabang Pro</h2>
+                    <p class="pt-2 font-extralight">Get access to all</p>
+                    <p class="font-extralight pt-0">features on Dabang Pro</p>
+                    <button class="bg-white text-blue-600 font-bold rounded-lg p-1.5 w-30 mt-2 hover:bg-gray-200 hover:text-xl">Get Pro</button>
+                </div>
+            </aside>
+            
+            <!--main page-->
+            <main class="flex-1 p-6">
+                
+                <!--first row-->
+                <div class="grid grid-cols-5 gap-4">
+                    <!--first column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5 col-span-3">
+                        <div class="flex justify-between">
+                            <h2 class="font-bold">Today's Sales</h2>
+                            <div class="border-2 p-1.5 mb-3 border-gray-200 rounded-md text-blue-900 text-sm">
+                                <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-270"></i>
+                                <button class=" text-xs">Export</button>
+                            </div>
+                        </div>
+                        <p class="font-extralight text-gray-500 mb-4">Sales Summary</p>
+                        <div class="grid grid-cols-4 gap-2 mt-3.5">
+                            <div class="bg-pink-200 rounded-lg p-2">
+                                <i class="fa-solid fa-chart-column bg-red-600 rounded-full p-2 text-white"></i>
+                                <p class="font-bold" id="todaySale"></p>
+                                <p class="font-normal">Total Sales</p>
+                                <p class="font-extralight text-blue-600 text-xs" id="percentChange"></p>
+                            </div>
+                            <div class="bg-amber-100 rounded-lg p-2">
+                                <i class="fa-solid fa-file bg-orange-600 rounded-full p-2 text-white"></i>
+                                <p class="font-bold" id="todayOrders"></p>
+                                <p class="font-normal">Total Order</p>
+                                <p class="font-extralight text-blue-600 text-xs" id="orderpercentChange"></p>
+                            </div>
+                            <div class="bg-green-200 rounded-lg p-2">
+                                <i class="fa-solid fa-tag fa-rotate-90 bg-green-600 rounded-full p-2 text-white"></i>
+                                <p class="font-bold" id="productsSoldToday"></p>
+                                <p class="font-normal">Product Sold</p>
+                                <p class="font-extralight text-blue-600 text-xs" id="soldpercentChange"></p> 
+                            </div>
+                            <div class="bg-purple-300 rounded-lg p-2">
+                                <i class="fa-solid fa-user-plus bg-purple-600 rounded-full p-2 text-white"></i>
+                                <p class="font-bold">8</p>
+                                <p class="font-normal">New Customers</p>
+                                <p class="font-extralight text-blue-600 text-xs">0.5% from yesterday</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--second column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5 col-span-2">
+                        <h2 class="font-bold">Visitor Insights</h2>
+                        <div>
+                            <canvas id="myChart" style="width: 100%; height: 200px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!--second row-->
+                <div class="grid grid-cols-4 gap-4">
+                    <!--first column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5 col-span-2">
+                        <h2 class="font-bold">Total Revenue</h2>
+                        <div>
+                            <canvas id="myChart1" height="100rem"></canvas>
+                        </div>
+                    </div>
+                    <!--Second column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5">
+                        <h2 class="font-bold">Customer Satisfaction</h2>
+                        <div>
+                            <canvas id="myChart2" height="220rem"></canvas>
+                        </div>
+                    </div>
+                    <!--Third column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5">
+                        <h2 class="font-bold">Target vs Reality</h2>
+                        <div>
+                            <canvas id="myChart3" height="220rem"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!--Third row-->
+                <div class="grid grid-cols-4 gap-4">
+                    <!--first column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5 col-span-2">
+                        <h2 class="font-bold">Top Products</h2>
+                        <div>
+                            <canvas id="myChart4" height="220rem"></canvas>
+                        </div>
+                    </div>
+                    <!--Second column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5">
+                        <h2 class="font-bold">Sales Mapping by Country</h2>
+                        <div>
+                            <canvas id="worldMapChart" height="220rem"></canvas>
+                        </div>
+                    </div>
+                    <!--Third column-->
+                    <div class="bg-white p-4 rounded-lg shadow mt-4.5">
+                        <h2 class="font-bold">Volume vs Service Level</h2>
+                        <div>
+                            <canvas id="myChart6" height="220rem"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="all.js"></script>
+    </body>
+</html>

@@ -23,7 +23,7 @@ document.querySelector("form").addEventListener("submit", async function(e) {
             console.log("Access Token:", data.token); //token returned
             console.log("Full Response:", data);
             setTimeout(() => {
-                window.location.href = "work.html";
+                window.location.href = "dashboard.html";
             }, 1500);
         } else {
             message.classList.remove("text-green-500");
